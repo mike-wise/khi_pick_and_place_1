@@ -34,6 +34,11 @@ WORKDIR $ROS_WORKSPACE
 
 # making sure the file modes are executable
 RUN chmod +x src/niryo_moveit/scripts/*.py
+RUN chmod +x $ROS_WORKSPACE/src/khi_robot/khi_rs007n_moveit_config/scripts/*.py
+RUN chmod +x $ROS_WORKSPACE/src/ros_tcp_endpoint/src/ros_tcp_endpoint/*.py
+RUN chmod +x $ROS_WORKSPACE/src/ros_tcp_endpoint/*.py
+RUN chmod +x $ROS_WORKSPACE/src/rs007_control/scripts/*py
+RUN chmod +x /tutorial
 
 ENTRYPOINT ["/tutorial"]
 

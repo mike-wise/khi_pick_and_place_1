@@ -4,7 +4,7 @@ RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C6
 
 RUN sudo apt-get update && sudo apt-get install -y vim iputils-ping net-tools python-pip ros-melodic-robot-state-publisher ros-melodic-moveit ros-melodic-rosbridge-suite ros-melodic-joy ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-tf2-web-republisher ros-melodic-rqt ros-melodic-rqt-common-plugins dos2unix
 
-RUN sudo -H pip install rospkg jsonpickle 
+RUN sudo -H pip install rospkg jsonpickle
 
 
 ENV ROS_WORKSPACE=/catkin_ws
@@ -26,7 +26,7 @@ RUN dos2unix /tutorial && dos2unix /setup.sh && chmod +x /setup.sh && /setup.sh 
 WORKDIR $ROS_WORKSPACE
 
 # making sure the file modes are executable
-RUN chmod +x src/niryo_moveit/scripts/*.py
-
+# RUN chmod +x src/niryo_moveit/scripts/*.py
+RUN chmod +x /tutorial \
+  && find $ROS_WORKSPACE -name "*.py" -exec chmod +x {} \;
 ENTRYPOINT ["/tutorial"]
-

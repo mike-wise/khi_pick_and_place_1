@@ -36,6 +36,6 @@ WORKDIR $ROS_WORKSPACE
 
 # making sure the file modes are executable
 # RUN chmod +x src/niryo_moveit/scripts/*.py
-
+RUN chmod +x /tutorial \
+  && find $ROS_WORKSPACE -name "*.py" -exec chmod +x {} \;
 ENTRYPOINT ["/tutorial"]
-
